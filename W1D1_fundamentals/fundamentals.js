@@ -63,21 +63,21 @@ const person = {
     password: 'sekureP@ssw0rd9',
     username: 'barley',
     addresses: [
-      {
-        address: '1600 Pennsylvania Avenue',
-        city: 'Washington, D.C.',
-        zipcode: '20500',
-      },
-      {
-        address: '221B Baker St.',
-        city: 'London',
-        zipcode: 'WC2N 5DU',
-      }
+        {
+            address: '1600 Pennsylvania Avenue',
+            city: 'Washington, D.C.',
+            zipcode: '20500',
+        },
+        {
+            address: '221B Baker St.',
+            city: 'London',
+            zipcode: 'WC2N 5DU',
+        }
     ],
     createdAt: 1543945177623
-  };
+};
 
-  const personCopy = {...person};
+const personCopy = { ...person };
 //   console.log(personCopy === person);
 //   console.log(personCopy.addresses === person.addresses);
 
@@ -129,7 +129,7 @@ const person = {
 
 
 
-var pow = function() {
+var pow = function () {
     return 3 * 3;
 }
 
@@ -151,7 +151,7 @@ var funcName = function (name) {
 }
 
 const funcNameArrow = (name) => {
-    console.log("hi "+ name);
+    console.log("hi " + name);
 }
 
 const funcArrow2 = name => {
