@@ -1,62 +1,62 @@
-// // var x;
+// var x;
 
-// var x = 22;
-// // console.log(x); // ?
+var x = 22;
+// console.log(x); // ?
 
-// function doStuff() {
-//     var y = 44;
-//     return y;
+function doStuff() {
+    var y = 44;
+    return y;
+}
+
+console.log(doStuff()); // ?
+// console.log(y); // ?
+
+
+
+// hello("john")
+// function hello(name) {
+//     console.log("hello", name);
 // }
 
-// console.log(doStuff()); // ?
-// // console.log(y); // ?
+console.log(x);
+let x = "hello"; // anchor 
+const num = 34;
+num = 23;
+
+for (let i = 0; i<10; i++) {
+    const num = i + 10;
+}
 
 
+const person1 = new Person()
 
-// // hello("john")
-// // function hello(name) {
-// //     console.log("hello", name);
-// // }
-
-// console.log(x);
-// let x = "hello"; // anchor 
-// const num = 34;
-// num = 23;
-
-// for (let i = 0; i<10; i++) {
-//     const num = i + 10;
-// }
-
-
-// const person1 = new Person()
-
-// const person = { 
-//     firstName: 'Bob', 
-//     lastName: 'Marley', 
-//     email: 'bob@marley.com', 
-//     password: 'sekureP@ssw0rd9', 
-//     username: 'barley', 
-//     createdAt: 1543945177623
-// };
+const personA = { 
+    firstName: 'Bob', 
+    lastName: 'Marley', 
+    email: 'bob@marley.com', 
+    password: 'sekureP@ssw0rd9', 
+    username: 'barley', 
+    createdAt: 1543945177623
+};
 
 // DESTRUCTURING 
 //       keys      keys         OBJECT
-// const {lastName, firstName}  = person;
-// const {email:personEmail}  = person;
+const {lastName, firstName}  = person;
+const {email:personEmail}  = person;
 
-// console.log(lastName);
-// console.log(firstName);
-// console.log(personEmail);
+console.log(lastName);
+console.log(firstName);
+console.log(personEmail);
 
-//                  0       1       2       3      4
-// const animals = ['horse', 'dog', 'fish', 'cat', 'bird'];
+                //  0       1       2       3      4
+const animals = ['horse', 'dog', 'fish', 'cat', 'bird'];
 
-// const [ , varName, , cat ] = animals;
-// console.log(varName, cat);
+const [ , varName, , cat ] = animals;
+console.log(varName, cat);
 
-// console.log(animals[1]);
+console.log(animals[1]);
 
-const person = {
+const personB = {
     firstName: 'Bob',
     lastName: 'Marley',
     email: 'bob@marley.com',
@@ -77,7 +77,7 @@ const person = {
     createdAt: 1543945177623
 };
 
-const personCopy = { ...person };
+const personCopy = { ...personB };
 //   console.log(personCopy === person);
 //   console.log(personCopy.addresses === person.addresses);
 
@@ -93,22 +93,16 @@ const personCopy = { ...person };
 
 
 
-// const array1 = [11,22,33,44];
-// // const array3 = [...array1];
+const array1 = [11,22,33,44];
+const array3 = [...array1];
 
-// // const [...array2] = array1;
-// // const {key} = person;
+// const [...array2] = array1;
+// const {key} = person;
 
-// array2.push(90001);
-// console.log(array1); // ?
-// console.log(array2); // ?
-// console.log(array3); // ?
-
-
-
-
-
-
+array2.push(90001);
+console.log(array1); // ?
+console.log(array2); // ?
+console.log(array3); // ?
 
 
 // const personEmail = person.email;
@@ -117,16 +111,13 @@ const personCopy = { ...person };
 // console.log(username);
 
 
-
 // pass by reference
 
-// console.log(person.firstName);
-// console.log(person["lastName"]);
-// person.firstName = "john";
-// console.log(person.firstName);
-// person.age = 123;
-
-
+console.log(person.firstName);
+console.log(person["lastName"]);
+person.firstName = "john";
+console.log(person.firstName);
+person.age = 123;
 
 
 var pow = function () {
@@ -140,10 +131,6 @@ const pow3 = () => {
 // const pow2 = () => 3 * 3;
 
 // setTimeout( () => console.log("hello"), 2000)
-
-
-
-
 
 var funcName = function (name) {
     console.log("hi " + name);
@@ -159,5 +146,13 @@ const funcArrow2 = name => {
     console.log("hi there " + name);
 }
 
-// funcNameArrow("john")
-// funcName("john")
+
+function getValueFromId(id){
+    console.log("asdsad");
+    return document.getElementById(id).value;
+}
+
+getValueFromId = id => document.getElementById(id).value;
+
+
+
