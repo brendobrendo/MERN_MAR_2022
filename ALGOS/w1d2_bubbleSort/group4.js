@@ -19,3 +19,29 @@ const nums3 = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 function bubbleSort(nums){ }
 
 // call the function and pass nums1, nums2, nums3
+function swap(arr,i,j){
+    let temp = arr[j]
+    arr[j]=arr[i]
+    arr[i]=temp
+}
+
+function bubble(arr){
+    for (let i =0;i<arr.length;i++){
+        let flag = 0
+        for (let j = 0;j<arr.length-1-i;j++){
+            if(arr[j]>arr[j+1]){
+                swap(arr,j,j+1)
+                flag = 1
+            }
+        }
+        if(flag==0){
+            return arr
+        }
+    }
+    return arr
+}
+
+
+
+
+
