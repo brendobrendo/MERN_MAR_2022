@@ -17,6 +17,33 @@
         you run selection sort for 10 iterations only to display the first 10
         sorted items...
 */
-const myArr = [3,2,9,5,1,4,8]
 
-function selectionSort(arr){ }
+//two for loops to iterate through, one(i) start at the beginning and the other(j) at the second index
+//set min index variable
+//find the less than index
+
+
+
+//             i
+const myArr = [3,2,9,5,1,4,8]
+//               j
+//             ^
+//           min index
+
+function selectionSort(arr){ 
+    
+    for (let i = 0; i < arr.length; i++) {
+        let minIndex = i;
+        for(let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        } 
+        if (minIndex != i) {
+            let temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+    }  
+    return arr
+}   
