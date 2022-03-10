@@ -30,7 +30,26 @@
     6. move to next item and repeat
 */
 
-function insertionSort(arr) { }
+function insertionSort(arr) { 
+    // assume first value is sorted
+    for(let i = 1; i < arr.length; i++) { // i goes through unsorted part of the array
+        let temp = arr[i] // grab a new unsorted value, save as temp
+        let inserted = false // set a flag for whether the unsorted value has been inserted into the array at the correct spot
+        for (j = i - 1; j >= 0; j--) { // j goes through the sorted part of the array
+            if (arr[j] > temp) { // if temp is smaller
+                arr[j+1] = arr[j] // copy the current value to the right
+            } else {
+                arr[j+1] = temp // otherwise, the location to the right of j is the correct position for temp
+                inserted = true // manage the flag
+                break
+            }
+        }
+        if (!inserted) { // if temp hasn't been inserted, insert now
+            arr[0] = temp
+        }
+    }
+    return arr
+}
 
 insertionSort2([3, 5, 2, 1, 0])
 insertionSort2([3, 0])

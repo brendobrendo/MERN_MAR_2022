@@ -30,7 +30,19 @@
     6. move to next item and repeat
 */
 
-function insertionSort(arr) { }
+function insertionSort(arr) { 
+    let i, j, temp;
+    for(i = 1; i < arr.length; i++){
+        temp = arr[i];
+        j = i - 1;
+        while(temp < arr[j] && j >= 0){
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = temp;
+    }
+    return arr;
+}
 
 insertionSort2([3, 5, 2, 1, 0])
 insertionSort2([3, 0])
@@ -39,3 +51,27 @@ insertionSort2([])
 insertionSort2([1, 2, 3, 4, 5])
 insertionSort2([5, 4, 3, 2, 1])
 insertionSort2([5, 4, 0, 2, 1])
+
+
+// function insertionSort(arr) {
+//     for (let x = 0; x < arr.length; x++) {
+//         let temp = arr[x + 1];
+//         for (let y = x + 1; y >= 0; y--) {
+//             if (temp < arr[y]) {
+//                 arr[y + 1] = arr[y];
+//             }
+//             if (temp >= arr[y - 1] || y == 0) {
+//                 if (x == arr.length - 1) {
+//                     break;
+//                 }
+//                 arr[y] = temp;
+//                 break;
+//             }
+//         }
+
+//         console.log(arr);
+//     }
+//     return arr;
+// }
+
+

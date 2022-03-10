@@ -30,7 +30,39 @@
     6. move to next item and repeat
 */
 
-function insertionSort(arr) { }
+function insertionSort(arr) {
+    for(let i = 1; i < arr.length; i++){
+        // let temp = arr[i]
+        let j = i
+        while(arr[j] < arr[j-1] && j > 0){
+            let holder = arr[j-1]
+            arr[j-1] = arr[j]
+            arr[j] = holder
+            j--
+        }
+    }
+    return console.log(arr);
+ }
+
+
+// For loop version
+const insertionSort2 = arr => {
+    for (let i = 1; i < arr.length; i++) {
+        let temp = arr[i]
+        for (let j = i - 1; j > -1; j--) {
+            if (temp < arr[j]) {
+                arr[j+1] = arr[j]
+                if (j === 0 || temp > arr[j-1]) {
+                    arr[j] = temp
+                    // break statement is unnecessary but prevents further iteration down the array
+                    // after inserting temp all of the lower-j values of arr[j] will be less than temp
+                    break
+                }
+            }
+        }
+    }
+    return console.log(arr)
+}
 
 insertionSort2([3, 5, 2, 1, 0])
 insertionSort2([3, 0])

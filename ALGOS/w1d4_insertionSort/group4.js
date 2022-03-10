@@ -30,12 +30,28 @@
     6. move to next item and repeat
 */
 
-function insertionSort(arr) { }
+function insertionSort(arr) 
+{ 
+    for (let i = 1; i < arr.length; i++)
+    {
+        for(let j = i; j>0; j--)
+        {
+            let temp = arr[j]
+            if(temp < arr[j-1]){
+                [arr[j],arr[j-1]] = [arr[j-1],arr[j]];
+            }else
+            {
+                break;
+            }
+        }
+    }
+    return arr;
+}
 
-insertionSort2([3, 5, 2, 1, 0])
-insertionSort2([3, 0])
-insertionSort2([0])
-insertionSort2([])
-insertionSort2([1, 2, 3, 4, 5])
-insertionSort2([5, 4, 3, 2, 1])
-insertionSort2([5, 4, 0, 2, 1])
+insertionSort([3, 5, 2, 1, 0])
+insertionSort([3, 0])
+insertionSort([0])
+insertionSort([])
+insertionSort([1, 2, 3, 4, 5])
+insertionSort([5, 4, 3, 2, 1])
+insertionSort([5, 4, 0, 2, 1])

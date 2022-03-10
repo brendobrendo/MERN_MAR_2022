@@ -30,7 +30,36 @@
     6. move to next item and repeat
 */
 
-function insertionSort(arr) { }
+//two for loops, i and j 
+// one loop start at index[1]
+//other loop starts at index[i -1]
+//temp stores value of 
+
+
+function insertionSort2(arr){
+    // outer loop:loop from index1 to the end
+    for (let i=1;i<arr.length;i++){
+        //sort the element in temp
+        const temp = arr[i]
+        // inner loop:loop from the element before the index [i] to the beginning
+        for (let j=i-1;j>=0;j--){
+            //if temp is less than current element, copy the current element to the index on the right
+            //if the temp is the local minimum(the inner loop go to the very beginning), replace the index [0] with temp
+            if (temp<arr[j]){
+                arr[j+1] = arr[j]
+                if (j==0){
+                    arr[j]=temp
+                }
+            //if temp is greater than current element, replace the element on the right of the current element. And break the inner loop
+            }else{
+                arr[j+1] =temp
+                break
+            }
+        }
+    }
+    return arr
+}
+
 
 insertionSort2([3, 5, 2, 1, 0])
 insertionSort2([3, 0])
