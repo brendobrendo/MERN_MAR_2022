@@ -26,7 +26,18 @@ var testArr = [88, 22, 44, 12, 99, 111, 9, 15, 49];
 
 // main recursive function that will be passed in mergeSortedArrays(left, right)
 // create a new sorted arr based on the given arr being recursively split and merged.
-function mergeSort(arr) { }
+
+
+//use mergesort to split array in halves down to individual values
+function mergeSort(arr) { 
+    if (arr.length <= 1) {
+        return arr;
+    }
+    else {
+        let middle = Math.floor(arr.length/2);
+        return mergeSortedArrays(mergeSort(arr.slice(0, middle)), mergeSort(arr.slice(middle)));
+    }
+}
 
 
 
@@ -40,10 +51,32 @@ var mergeArr1 = [33,44];
 var mergeArrA = [33,44,55];
 var mergeArrB = [11,66];
 
-var arrLeft = [22];
-var arrRight = [11,33];
+// var arrLeft = [22];
+// var arrRight = [11,33];
 //                      arrLeft, arrRight
-function mergeSortedArrays(arr1, arr2) { }
+
+function mergeSortedArrays(arrLeft, arrRight) { 
+    const returnArr = [];
+    let leftIdx = 0;
+    let rightIdx = 0;
+    while (leftIdx < arrLeft.length || rightIdx < arrRight.length){
+        if (arrLeft.length <= leftIdx){
+            return [...returnArr, ...arrRight.slice(rightIdx)]
+        }
+        if (arrRight.length <= rightIdx){
+            return [...returnArr, ...arrLeft.slice(leftIdx)]
+        }
+        if (arrLeft[leftIdx] < arrRight[rightIdx]){
+            returnArr.push(arrLeft[leftIdx]);
+            leftIdx++;
+        }
+        else if (arrRight[rightIdx] < arrLeft[leftIdx]){
+            returnArr.push(arrRight[rightIdx]);
+            rightIdx++;
+        }
+    } 
+    return returnArr;
+}
 
 // //steps:
 //     1. create a merge function to merge two already sorted arrays into a single sorted array
