@@ -10,9 +10,10 @@ const FunctionalComp = (props) => {
 
     // CREATE STATE in Functional Comp
     //    state
-    //          change state
-    //                         default state
+    //      |       change state
+    //      V             V                   default state
     const [unicornNum, setUnicornNum] = useState(props.num)
+
     // const [person, setPerson] = useState(props.person)
     const [person, setPerson] = useState({
         firstName: "john",
@@ -41,6 +42,9 @@ const FunctionalComp = (props) => {
             </p>
             <p>
                 num State: {unicornNum}
+                {
+                    unicornNum > 15 ? <p>🎈🎈🎈🎈🎈</p> : <p>keep clicking</p>
+                }
                 {/* person: {JSON.stringify(person)} */}
             </p>
             <hr />
