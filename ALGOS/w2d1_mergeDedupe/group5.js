@@ -17,3 +17,61 @@ mergeDedupe([2,3,3,5,8,10,12], [1,3,4,6]) // [1, 2, 3, 4, 5, 6, 8, 10, 12]
 //     [1, 3, 3, 5, 8, 10]
 // //   b
 //     [1, 3, 4, 5]
+
+function mergeDedupe(arr1,arr2){
+    const result = []
+    let [i,j] = [0,0]
+    while (i<arr1.length || j<arr2.length){
+        if (arr1[i]<=arr2[j] || j>=arr2.length){
+            if(arr1[i] != result[result.length-1]){
+                result.push(arr1[i])
+            }
+            i ++
+        } else{
+            if(arr2[j] != result[result.length-1]){
+                result.push(arr2[j])
+            }
+            j ++
+        }
+    }
+    return result
+    
+}
+
+function mergeDedupe2(arr1, arr2) 
+{ 
+    let a = 0;
+    let b = 0;
+    let retArr = []
+    while (a < arr1.length && b < arr2.length)
+    {
+        if(retArr.includes(arr1[a])) a = a+1;
+        else if(retArr.includes(arr2[b])) b = b+1;
+
+        else if(arr1[a] <= arr2[b])
+        {
+            retArr.push(arr1[a])
+            a = a+1;
+        }
+        else if (arr1[a]>arr2[b])
+        {
+            retArr.push(arr2[b])
+            b = b+1;
+        }
+    }
+
+    while(a < arr1.length)
+    {
+        if(!retArr.includes(arr1[a])) retArr.push(arr1[a])
+        a++;
+    }
+    
+    while(b < arr2.length)
+    {
+        if(!retArr.includes(arr2[b])) retArr.push(arr2[b])
+        b++;
+    }
+    console.log(arr1.length,a,arr2.length,b)
+    console.log(retArr);
+    return retArr
+}
