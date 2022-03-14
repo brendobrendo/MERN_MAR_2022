@@ -6,7 +6,7 @@ import Input from './components/Input';
 function App() {
 
   // original state
-  const animalsArray = ["🦓", "🦁", "🐘", "🐒"];
+  // const animalsArray = ["🦓", "🦁", "🐘", "🐒"];
 
   // const [animals, setAnimals] = useState(animalsArray)
   const [animals, setAnimals] = useState(["🦓", "🦁", "🐘", "🐒"])
