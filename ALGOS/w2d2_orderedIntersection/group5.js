@@ -30,4 +30,50 @@ const expected3 = [];
  *    sorted and contains only the shared values between the two arrays
  *    deduped.
  */
- function orderedIntersection(sortedA, sortedB) {}
+ 
+ function orderedIntersection(sortedA, sortedB) 
+ {
+    let shorterArr, longerArr;
+    let retArr = []
+    if(sortedA.length < sortedB.length) 
+        [shorterArr,longerArr]= [sortedB,sortedA];
+    else
+        [shorterArr,longerArr]= [sortedB,sortedA];
+ 
+    for (const item of shorterArr)
+    {
+        console.log(item)
+        if(longerArr.includes(item) && retArr[retArr.length-1]!== item)retArr.push(item);
+    }
+    // console.log(retArr);
+    return retArr;
+ }
+
+
+ 
+ function orderedIntersection2(sortedA, sortedB) 
+ {
+    let idxA = 0, idxB = 0;
+    let retArr = []
+    while(idxA < sortedA.length && idxB < sortedB.length)
+    {
+        if(sortedA[idxA] == sortedB[idxB])
+        {
+            if(retArr[retArr.length-1] !== sortedA[idxA])retArr.push(sortedA[idxA]);
+            idxA ++;
+            idxB ++;
+        }
+        else if(sortedA[idxA] <= sortedB[idxB])
+        {
+            idxA++;
+        }else if(sortedA[idxA] >= sortedB[idxB])
+        {
+            idxB++;
+        }
+        // console.log(sortedA[idxA], sortedA[idxB])
+    }
+    return retArr;
+ }
+
+ console.log(orderedIntersection(arrA1,arrB1))
+ console.log(orderedIntersection2(arrA1,arrB1))

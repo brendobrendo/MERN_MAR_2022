@@ -30,4 +30,28 @@ const expected3 = [];
  *    sorted and contains only the shared values between the two arrays
  *    deduped.
  */
- function orderedIntersection(sortedA, sortedB) {}
+ function orderedInsertion(arr1, arr2) {
+  const resultArr = [];
+  let arr1Index = 0;
+  let arr2Index = 0;
+  let temp = null;
+
+  while (arr1Index < arr1.length && arr2Index < arr2.length) {
+      if (arr1[arr1Index] == arr2[arr2Index]) {
+          if (temp != arr1[arr1Index]){
+              resultArr.push(arr1[arr1Index]);
+              temp=arr1[arr1Index];
+          }
+          arr1Index++;
+          arr2Index++;
+      }
+      else if(arr1[arr1Index]< arr2[arr2Index]){
+          arr1Index++;
+      }
+      else if(arr2[arr2Index]< arr1[arr1Index]){
+          arr2Index++;
+      }
+      
+  }
+  return resultArr;
+}

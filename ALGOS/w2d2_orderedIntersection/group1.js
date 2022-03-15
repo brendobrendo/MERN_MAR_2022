@@ -30,4 +30,100 @@ const expected3 = [];
  *    sorted and contains only the shared values between the two arrays
  *    deduped.
  */
- function orderedIntersection(sortedA, sortedB) {}
+
+
+// check the arr length
+//compare arr1 and arr2 lengths 
+
+
+function orderedIntersection(sortedA, sortedB) {
+
+  let newArray = []
+  let short = []
+  let long = []
+
+  if (sortedA.length > sortedB.length) {
+    long = sortedA
+    short = sortedB
+  }
+  else {
+    long = sortedB
+    short = sortedA
+  }
+
+  let j = 0
+
+  for (let i = 0; i < long.length; i++) {
+    if (long[i] === short[j] && newArray[newArray.length-1] !== long[i]){
+      newArray.push(long[i])
+    }
+    while (long[i] > short[j]){
+      j++
+      if (long[i] === short[j] && newArray[newArray.length-1] !== long[i]){
+        newArray.push(long[i])
+      }
+    }
+  }
+  return newArray
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function orderedIntersection(sortedA, sortedB) {
+
+  if (sortedA.length > sortedB.length) {
+    var [arr1, arr2] = [sortedA, sortedB]
+  } else {
+    var [arr1, arr2] = [sortedB, sortedA]
+  }
+
+  let new_arr = []
+
+  for (x = 0; x < arr1.length; x++) {
+    for (j = 0; j < arr2.length; j++) {
+      if (arr1[x] == arr2[j]) {
+        if (arr1[x] != new_arr[new_arr.length - 1])
+          new_arr.push(arr1[x])
+      }
+
+    }
+  }
+  console.log(new_arr)
+  return new_arr
+
+}
+
+function orderedIntersection(sortedA, sortedB) {
+  const returnArr = []
+  let idx = 0
+  let idx2 = 0
+  while (idx < sortedA.length && idx2 < sortedB.length) {
+      if (sortedA[idx] === sortedB[idx2]) {
+          if (returnArr[returnArr.length - 1] !== sortedA[idx]) {
+              returnArr.push(sortedA[idx])
+          }
+          idx++
+          idx2++
+      }
+      else if (sortedA[idx] > sortedB[idx2]) {
+          idx2++
+      }
+      else if (sortedA[idx] < sortedB[idx2]) {
+          idx++
+      }
+  }
+  return returnArr
+}
+
+orderedIntersection(arrA1, arrB1)
+orderedIntersection(arrA2, arrB2)
+orderedIntersection(arrA3, arrB3)

@@ -30,4 +30,43 @@ const expected3 = [];
  *    sorted and contains only the shared values between the two arrays
  *    deduped.
  */
- function orderedIntersection(sortedA, sortedB) {}
+
+ function dedupe(arr) {
+  let deduped = [];
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i + 1] !== arr[i]) {
+      deduped.push(arr[i]);
+    }
+  }
+  return deduped;
+}
+
+function orderedIntersection(sortedA, sortedB) {
+  let newArr = [];
+  if (sortedA.length > 0 && sortedB.length > 0) {
+    for (let i = 0; i < sortedA.length; i++) {
+      if (sortedB.includes(sortedA[i])) {
+        newArr.push(sortedA[i]);
+      }
+    }
+  }
+  return dedupe(newArr);
+}
+
+function newFunk(sortedA, sortedB) {
+  let short = sortedA;
+  let long = sortedB;
+  let newArr=[]
+  if (sortedA.length > sortedB.length) {
+    short = sortedB;
+    long = sortedA;
+  }
+  for(i=0; i<short.length; i++){
+    if(long.includes(short[i])){
+      if(newArr[newArr.length-1]!==short[i]){newArr.push(short[i])}
+    }
+  }
+  console.log(newArr)
+}
+
+newFunk(arrA1, arrB1)
