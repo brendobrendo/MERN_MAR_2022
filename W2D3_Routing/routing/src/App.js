@@ -2,7 +2,7 @@ import './App.css';
 import Home from './components/Home';
 import Results from './components/Results';
 import Form from './components/Form';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link, Redirect } from 'react-router-dom';
 
 function App() {
   return (
@@ -24,9 +24,15 @@ function App() {
           <Form/>
         </Route>
 
-        <Route exact path={"/"}>
-          <Home />
+
+        <Route path={"/home"}>
+          <Home/>
         </Route>
+
+        <Route exact path={"/"}>
+          <Redirect to={"/home"} />
+        </Route>
+
 
 
       </Switch>
