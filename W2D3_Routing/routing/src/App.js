@@ -24,7 +24,6 @@ function App() {
           <Form/>
         </Route>
 
-
         <Route path={"/home"}>
           <Home/>
         </Route>
