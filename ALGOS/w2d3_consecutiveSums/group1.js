@@ -22,6 +22,22 @@
 // create new arrays
 // if no matches, return empty array
 
-function findConsecutiveSums(arr, k) { }
+function findConsecutiveSums(arr, target) { 
+    let result = [];
+    for (let sumStart = 0; sumStart < arr.length; sumStart++) {
+        let sum = 0;
+        let index = sumStart;
+        let currentSumArray = [];
+        while (sum <= target) {
+            sum += arr[index];
+            currentSumArray.push(arr[index]);
+            index++;
+            if (sum == target) {
+                result.push([...currentSumArray]);
+            }
+        }
+    }
+    return result;
+}
 
 console.log(findConsecutiveSums([2,5,3,6,7,0,0,23,11], 16));

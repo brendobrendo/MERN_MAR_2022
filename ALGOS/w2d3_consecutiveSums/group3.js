@@ -22,6 +22,50 @@
 // create new arrays
 // if no matches, return empty array
 
-function findConsecutiveSums(arr, k) { }
+/*
+    PSEUDO CODE
+    init empty Output array
+    initialize left and right pointer. l = 0, r = l + 1
+    init empty subarray
+    while loop( iterate through main array ){
+        only increment when 
+    }
 
-console.log(findConsecutiveSums([2,5,3,6,7,0,0,23,11], 16));
+*/
+
+function findConsecutiveSums(arr, k) {
+    let output = [];
+    let subArray = [];
+    let l = 0;
+    let sum = 0;
+
+    while (l < arr.length) {
+        let r = l;
+        // sum += arr[l];
+        // subArray.push(arr[l]);
+
+        while (sum <= k && r < arr.length) {
+            if (sum === k) {
+                break;
+            } else {
+                subArray.push(arr[r]);
+                sum += arr[r];
+                r++;
+            }
+        }
+
+        console.log(sum);
+
+        if (sum === k) {
+            output.push(subArray);
+        }
+
+        subArray = [];
+        sum = 0;
+        l++;
+    }
+
+    return output;
+}
+
+console.log(findConsecutiveSums([2, 5, 3, 6, 7, 0, 0, 23, 11], 16));
