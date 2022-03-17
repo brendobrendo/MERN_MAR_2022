@@ -26,6 +26,34 @@
 // given: [3,3]
 // target: 6
 // output: [0,1]
+function twoSums(arr, target) {
+    let i = 0;
+    while( i < arr.length - 1){
+        let j = i + 1;
+        while( j < arr.length){
+            if (arr[i] + arr[j] == target){
+                return [i,j]
+            }
+            j++
+        }
+        i++
+        }
+        return []
+    }
+
+    
+function twoSums1(arr,target){
+    const seen={}
+    for (let i=0;i<arr.length;i++){
+        result = target-arr[i]
+        if (seen.hasOwnProperty(result.toString())){
+            return [seen[result],i]
+        }else{
+            seen[arr[i]]=i
+            // console.log(seen);
+        }
+    }
+}
  
 function twoSums(arr, target) { }
 
