@@ -32,4 +32,18 @@ const expected2 = 0;
 */
 
 
-function diagonalDifference(sqrMatrix) { }
+function diagonalDifference(sqrMatrix) {
+  let diagonalSum1 = 0
+  let diagonalSum2 = 0
+  const matrixLength = sqrMatrix.length
+  for (let i = 0; i < matrixLength; i++) {
+      diagonalSum1 += sqrMatrix[i][i]
+      diagonalSum2 += sqrMatrix[i][sqrMatrix.length - 1 - i]
+  }
+  // return Math.abs(diagonalSum1 - diagonalSum2)
+  let diagonalDiff = diagonalSum1 - diagonalSum2;
+  return (diagonalDiff >= 0) ? diagonalDiff : - diagonalDiff
+}
+
+console.log(diagonalDifference(squareMatrix1));
+console.log(diagonalDifference(squareMatrix2));

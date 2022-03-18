@@ -32,4 +32,76 @@ const expected2 = 0;
 */
 
 
-function diagonalDifference(sqrMatrix) { }
+function diagonalDifference(sqrMatrix) {
+  let r1 = 0;
+  let r2 = sqrMatrix.length - 1;
+  let sum1 = 0;
+  let sum2 = 0;
+
+  for (let i = 0; i < sqrMatrix.length; i++) {
+      r1 = i;
+      r2 = sqrMatrix.length -1- i;
+      sum1+=sqrMatrix[r1][r1]
+      // console.log("right"+sqrMatrix[r1][r1]);
+      sum2+=sqrMatrix[r1][r2]
+      // console.log("left"+sqrMatrix[r1][r1]);
+
+  }
+  // console.log("sum1: "+sum1);
+  // console.log("sum2: "+sum2);
+  return (sum1 - sum2);
+}
+
+function diagonalDifference(arr) {
+  let p1 = [0,0];
+  let p2=[arr.length-1,0];
+  let sum1 = 0;
+  let sum2= 0;
+  let flag= false;
+
+  while(!flag){
+      if(p1 <= [arr.length-1, arr.length-1]){
+          sum1 += arr[p1[0]][p1[1]]
+          p1[0] = p1[0] +1
+          p1[1] = p1[1] +1
+          // console.log(sum1);
+      } 
+      if(p2[0] >= 0 && p2[1] >= arr.length-1 ){
+          sum2 += arr[p2[0]][p2[1]];
+          p2[0] = p2[0] -1
+          p2[1] = p2[1] +1
+          // console.log(sum2)
+      } 
+      if(p1[0] > arr.length -1 && p2[1] > arr.length-1){
+        break
+        
+  }
+  return sum2-sum1
+}
+
+console.log(diagonalDifference(squareMatrix2));
+
+
+function diagonalDifference(sqrMatrix) {
+  let sum1 = 0;
+  let sum2 = 0;
+
+  //sum1
+  for (let i = 0; i < sqrMatrix.length; i++){
+    sum1 += sqrMatrix[i][i];
+  }
+  console.log("Sum from top left to bottom right:", sum1);
+
+  //sum2
+  let reverseIdx = sqrMatrix.length - 1;
+  for (let j = 0; j < sqrMatrix.length; j++){
+    sum2 += sqrMatrix[j][reverseIdx];
+    reverseIdx--;
+  }
+  console.log("Sum from top right to bottom left:", sum2);
+
+  console.log("Final equation: |"+sum1+'-'+sum2+"|");
+  return Math.abs(sum1-sum2);
+}
+
+//hi tommy

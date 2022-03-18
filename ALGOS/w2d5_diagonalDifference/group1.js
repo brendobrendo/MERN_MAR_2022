@@ -32,4 +32,33 @@ const expected2 = 0;
 */
 
 
-function diagonalDifference(sqrMatrix) { }
+function diagonalDifference(sqrMatrix) { 
+  let sum1 = 0
+  let sum2 = 0
+  let length = sqrMatrix.length
+
+  for (let i = 0; i< length; i ++) {
+      sum1 += sqrMatrix[i][i]
+      sum2 += sqrMatrix[i][length - 1 - i]
+  }
+  return Math.abs(sum1 - sum2)
+}
+
+
+
+function diagonaldiff2(arr){
+  let result = 0
+
+  for(let i=0;i<arr.length;i++){
+      for(let j = 0 ; j<arr[0].length;j++){
+          if(i===j){
+              result += arr[i][j]
+          } 
+          if(i+j == arr.length-1){
+              result -= arr[i][j]
+          }
+      }
+  }
+
+  return Math.abs(result)
+}

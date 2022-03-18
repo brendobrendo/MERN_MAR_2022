@@ -32,4 +32,32 @@ const expected2 = 0;
 */
 
 
-function diagonalDifference(sqrMatrix) { }
+
+function diagonalDifference(sqrMatrix) {
+
+  let L = sqrMatrix.length - 1
+  let counter = 0
+  let LSum = 0
+  let RSum = 0
+
+
+      for (let i = 0; i <= L; i++) {
+          LSum += sqrMatrix[i][i]
+          console.log(`***${LSum}***`)
+      }
+
+
+
+  console.log("*******")
+
+      for (let i = L; i >= 0; i--) {
+          RSum += sqrMatrix[counter][i]
+          counter++
+          console.log(`***${RSum}***`)
+      }
+
+  return Math.abs(RSum - LSum)? Math.abs(RSum - LSum) : 0
+  
+}
+
+console.log(diagonalDifference(squareMatrix1))

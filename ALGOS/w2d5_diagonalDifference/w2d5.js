@@ -6,11 +6,17 @@
 */
 
 const squareMatrix1 = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [9, 8, 9],
+    [1, 2, 3], // arr[0][0],    arr[0][arr.length - 1]
+    [4, 5, 6], // arr[1][1],    arr[1][1]
+    [9, 8, 9], // arr[2][2],    arr[2][0]
 ];
 const expected1 = 2;
+//             0           1       2
+const arr = [[10,20,30],   50,    99,    11];
+//         arr[0][0]  arr[0][1]
+//       arr[0]   arr[1]  arr[2]   arr[3]
+
+
 /* 
   left to right diagonal: 1 + 5 + 9 = 15
   right to left diagonal: 3 + 5 + 9 = 17

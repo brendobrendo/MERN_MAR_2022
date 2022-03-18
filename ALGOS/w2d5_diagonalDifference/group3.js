@@ -32,4 +32,24 @@ const expected2 = 0;
 */
 
 
-function diagonalDifference(sqrMatrix) { }
+function diagonalDifference(sqrMatrix) { 
+  let leftSum=0
+  let rightSum=0;
+  for(let i=0; i<arr.length; i++){
+      leftSum+= arr[i][i];
+      rightSum+= arr[i][arr.length-i-1];
+  }
+  return Math.abs(rightSum-leftSum);
+}
+
+function diagonalDifference2(arr) { 
+  let leftSum=0, rightSum=0, startInd=0, endInd=arr.length-1;
+
+  while(startInd<=endInd){
+      leftSum+= arr[startInd][startInd];
+      rightSum+= arr[startInd][endInd-startInd];
+      startInd++;
+  }
+
+  return Math.abs(rightSum-leftSum);
+}

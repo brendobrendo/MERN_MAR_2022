@@ -32,4 +32,16 @@ const expected2 = 0;
 */
 
 
-function diagonalDifference(sqrMatrix) { }
+function diagonalDifference(sqrMatrix) {
+  let leftSum = 0
+  let rightSum = 0
+  let j = sqrMatrix.length-1
+  for (let i=0; i<sqrMatrix.length; i++){
+    leftSum+=sqrMatrix[i][i]
+    rightSum+=sqrMatrix[i][j-i]
+  }
+  return Math.abs(leftSum-rightSum)
+ }
+
+ console.log(diagonalDifference(squareMatrix1))
+ console.log(diagonalDifference(squareMatrix2))
