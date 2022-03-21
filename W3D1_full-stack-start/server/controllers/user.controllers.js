@@ -7,9 +7,9 @@ module.exports.findAllUsers = (req, res) => {
     // db.users.find()
     User.find()
         // IMPORTANT what we return here is what we will receive in REACT!
-        .then(allDaUsers => {
-            console.log(allDaUsers);
-           return res.json(allDaUsers)
+        .then(unicorns => {
+            console.log(unicorns);
+           return res.json({allUsers: unicorns})
         })
         .catch(err => res.json({ message: 'Something went wrong', error: err }));
 }
@@ -19,7 +19,7 @@ module.exports.findOneSingleUser = (req, res) => {
     // /api/users/:id
     console.log(req.params);
     User.findOne({ _id: req.params.id })
-        .then(oneSingleUser => res.json({ user: oneSingleUser }))
+        .then(oneSingleUser => res.json(oneSingleUser ))
         .catch(err => res.json({ message: 'Something went wrong', error: err }));
 }
 
