@@ -30,7 +30,28 @@ const output2 = [
     { firstName: "Bob", lastName: "Smith", age: 27 },
 ];
 
-function findObjectsFilter(searchObj, items) {}
+function findObjectsFilter(searchObj, items) {
+    const outputArr = [];
+    for(let i = 0; i < items.length; i++){
+        let isMatch = true;
+        for(key in searchObj){
+            if(items[i].hasOwnProperty(key) === false){
+                isMatch = false;
+                break;
+            }
+        //checking if the value of the current iteration exists
+            if(items[i][key] !== searchObj[key]){
+                isMatch = false;
+                break;
+            }
+
+        }
+        if(isMatch === true){
+            outputArr.push(items[i]);
+        }
+    }
+    return outputArr;
+}
 
 console.log(findObjectsFilter(searchFor1, items));
 console.log(findObjectsFilter(searchFor2, items));

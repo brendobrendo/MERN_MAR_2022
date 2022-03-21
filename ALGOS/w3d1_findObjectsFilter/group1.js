@@ -32,5 +32,49 @@ const output2 = [
 
 function findObjectsFilter(searchObj, items) {}
 
+
+
+
+function findObjectsFilter2(searchObj, items){
+    let matchingObj = [] //Create a new list to add to
+    for(const item of items)    //Loop through the ITEMS of the list
+    {
+        // console.log(item);
+        let matching = true    //Just have a simple matching variable
+        for(const key in searchObj) //Look through all the keys
+        {
+            if(item[key] !== searchObj[key]){ //If the item key doesn't match then we don't match
+                matching = false; 
+                break;
+            } 
+        }
+        if(matching===true) //Well if it's still matching push the item
+        {
+            matchingObj.push(item)
+        }
+    }
+    // console.log(matchingObj);
+    return matchingObj
+}
+
+const findObjectsFilter3 = (searchObj, items)=>
+{
+    let keys = Object.keys(searchObj) //Get the keys in the Object
+    let filtered =items.filter(item => {    //Filter out the matching ones
+        let isMatching = true;
+        for(const key of keys)
+        {
+            if(item[key] !== searchObj[key])
+            {
+                isMatching = false  //If the value at the key doesn't match search then it's false
+                break;
+            }
+        }
+        return isMatching   //Return if it's matching...
+    });
+    //Then once we've filtered return the filter
+    return filtered;
+}
+
 console.log(findObjectsFilter(searchFor1, items));
 console.log(findObjectsFilter(searchFor2, items));

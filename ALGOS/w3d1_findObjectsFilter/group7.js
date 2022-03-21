@@ -34,3 +34,15 @@ function findObjectsFilter(searchObj, items) {}
 
 console.log(findObjectsFilter(searchFor1, items));
 console.log(findObjectsFilter(searchFor2, items));
+
+function findObjectsFilter(searchObj, items) {
+    newArr = [];
+
+    for(person of items){
+        console.log(person);
+        if(person.firstName == "Bob" && person.age == 31){
+            newArr.push(person)
+        }
+    }
+    return newArr
+}
