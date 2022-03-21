@@ -1,6 +1,6 @@
 # MERN - MARCH 2022
 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/jupiterorbita/MERN_JAN_2022)
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/jupiterorbita/MERN_MAR_2022)
 
 ## clone this repo, then `git pull` to get the latest changes
 
