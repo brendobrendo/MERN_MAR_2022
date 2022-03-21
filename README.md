@@ -1,4 +1,4 @@
-# MERN - JANUARY 2022
+# MERN - MARCH 2022
 
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/jupiterorbita/MERN_JAN_2022)
 
