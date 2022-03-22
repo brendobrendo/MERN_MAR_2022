@@ -26,8 +26,16 @@ const obj1 = {
   ];
   
   obj1.__proto__ = obj2;
-  
-  function entries(obj) { }
+
+  function entries(obj) {
+      let arr = []
+      for (key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          arr.push([key, obj[key]])
+      }
+      }
+      return arr
+  }
   
   console.log(entries(obj1));
   
@@ -56,4 +64,20 @@ const obj1 = {
     "INSERT INTO users (first_name, last_name, age, is_admin) VALUES ('John', 'Doe', 30, false);";
   // Explanation: no quotes around the int or the bool, technically in SQL the bool would become a 0 or 1, but don't worry about that here.
   
-  function insert(tableName, columnValuePairs) { }
+  function insert(tableName, columnValuePairs) {
+      let checkFirst=true;
+    let str1="INSERT INTO "+tableName+" (";
+    let str2=") VALUES (";
+    let str3=");";
+    for(key in columnValuePairs){
+        if(checkFirst){
+            checkFirst=false;
+        }else{
+            str1+=", ";
+            str2+=", ";
+        }
+        str1+=key;
+        str2+="'"+columnValuePairs[key]+"'";
+    }
+    return str1+str2+str3;
+}

@@ -25,10 +25,21 @@ const obj1 = {
     ["age", 13],
   ];
   
-  obj1.__proto__ = obj2;
+  // obj1.__proto__ = obj2;
   
-  function entries(obj) { }
+  function entries(obj) {
+    const keyValPairs = [];
   
+    for (const key in obj) {
+      // has own property means it is a prop directly on obj, not on it's proto
+      if (obj.hasOwnProperty(key)) {
+        const val = obj[key];
+  
+        keyValPairs.push([key, val]);
+      }
+    }
+    return keyValPairs;
+  }
   console.log(entries(obj1));
   
   // ==================================================

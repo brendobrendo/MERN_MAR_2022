@@ -27,7 +27,15 @@ const obj1 = {
   
   obj1.__proto__ = obj2;
   
-  function entries(obj) { }
+  function entries(obj) {
+    let arr = [];
+    for(let keys in obj){
+      if(obj.hasOwnProperty(keys)){
+        arr.push([keys, obj[keys]])
+      }
+    }
+  return arr;
+   }
   
   console.log(entries(obj1));
   
