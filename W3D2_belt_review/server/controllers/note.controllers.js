@@ -8,7 +8,7 @@ module.exports = {
     findAll : (req, res) => {
         Note.find()
             .then( (allNotes) => {
-                return res.json({all: allNotes})
+                return res.json(allNotes)
             })
             .catch(err => res.json(err))
     },
