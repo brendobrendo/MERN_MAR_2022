@@ -37,7 +37,21 @@ const students = [
     }
 ];
 
-function findByIdAndUpdate(id, updatedVals, collection) { }
+function findByIdAndUpdate(id, updatedVals, collection) {
+
+    let objToUpdate=null;
+    for (entry of collection) {
+        if (entry.id === id) {
+            objToUpdate=entry;
+            for (key in updatedVals) {
+                if (entry.hasOwnProperty(key)) {
+                    entry[key] = updatedVals[key]
+                }
+            }
+        }
+    }
+    return objToUpdate;
+}
 
 console.log(findByIdAndUpdate(3, { redBeltStatus: true }, students));
 console.log(findByIdAndUpdate(1, { isLateToday: true, lateCount: 16, randomKey: "randomValue"  }, students));

@@ -37,11 +37,55 @@ const students = [
     }
 ];
 
-function findByIdAndUpdate(id, updatedVals, collection) { }
+function findByIdAndUpdate(id, updatedVals, collection) {
+    let keyArr = [];
+    if(!collection[id-1]){
+        return null;
+    }
+    for (key in updatedVals) {
+        keyArr.push(key)
+        // console.log(keyArr)
+    }
+    for (let x = 0; x < collection.length; x++) {
+        if (collection[x].id == id) {
+            for (let i = 0; i < keyArr.length; i++) {
+                if (collection[x].hasOwnProperty(keyArr[i])) {
+                    collection[x][keyArr[i]] = updatedVals[keyArr[i]];
+                    // console.log(collection[x][keyArr[i]]);
+                }
+            }
+            return collection[x]
+        }
+    }
+}
 
 console.log(findByIdAndUpdate(3, { redBeltStatus: true }, students));
 console.log(findByIdAndUpdate(1, { isLateToday: true, lateCount: 16, randomKey: "randomValue"  }, students));
 console.log(findByIdAndUpdate(5, {}, students));
+
+
+function findByIdAndUpdate(id, updatedVals, collection) { 
+    let key = Object.keys(updatedVals)
+    let values = Object.values(updatedVals)
+
+    let newObj = {};
+    
+    for ( obj in collection) {
+        if(collection[obj].id == id ){
+            newObj = collection[obj]
+           for ( i = 0 ; i < key.length ; i++ ){
+                if(newObj.hasOwnProperty(key[i])){
+                    newObj[key[i]] = values[i]
+                }
+           }
+        }
+    }
+   console.log(newObj)
+}
+findByIdAndUpdate(3, { redBeltStatus: true }, students)
+findByIdAndUpdate(1, { isLateToday: true, lateCount: 16, randomKey: "randomValue"  }, students)
+findByIdAndUpdate(5, {}, students)
+
 
 // --- TEST the following: ---
 // Input: 3, { redBeltStatus: true }, students

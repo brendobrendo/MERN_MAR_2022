@@ -37,7 +37,43 @@ const students = [
     }
 ];
 
-function findByIdAndUpdate(id, updatedVals, collection) { }
+function findByIdAndUpdate(id, updatedVals, collection) { 
+    for(let obj of collection){
+    // find if the id key value matches the parameter id
+    if(obj.id === id){
+        const keys=Object.keys(updatedVals);
+        for(let key in updatedVals){
+            if(obj.hasOwnProperty(key)){
+                obj[key]=updatedVals[key];
+            }
+        }
+        return obj;
+    }
+
+}
+
+return null; }
+
+function findByIdAndUpdate(id, updatedVals, collection) {
+    let idx = null;
+    for (let i = 0; i < collection.length; i++) {
+        if (collection[i].id === id) {
+            idx = i;
+            break;
+        }
+    }
+    if (idx === null) {
+        return idx;
+    }
+
+    for (key in updatedVals) {
+        if (collection[idx].hasOwnProperty(key)){
+            collection[idx][key] = updatedVals[key];
+        }
+    }
+
+    return collection[idx];
+}
 
 console.log(findByIdAndUpdate(3, { redBeltStatus: true }, students));
 console.log(findByIdAndUpdate(1, { isLateToday: true, lateCount: 16, randomKey: "randomValue"  }, students));
