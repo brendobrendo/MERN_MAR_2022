@@ -59,8 +59,7 @@ function findByIdAndUpdateRefined(id, updatedVals, collection) {
             for (const key in updatedVals) {
                 if (updatedVals.hasOwnProperty(key) && collection[i].hasOwnProperty(key)) {
                     collection[i][key] = updatedVals[key]
-                returnValue = collection[i]
-
+                    returnValue = collection[i]
                 }
             }
         }
