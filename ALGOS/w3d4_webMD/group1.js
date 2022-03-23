@@ -71,11 +71,6 @@ Input: ["existential dread"], medications
 Output: []
 */
 
-// HINTS:
-// Loop through first array to check the medicine
-// then loop through second array to see if the symptoms match the inputted symptoms
-// if they match add them into a new array at the end return array
-// edge case if no matches return null
 function webMD(ailments, meds) { }
 
 console.log(webMD(["pain"], medications));
