@@ -103,11 +103,13 @@ RED-BELT
 	touch server.js
 	npm init -y
     npm i express mongoose cors
+    nodemon server.js
 
 /client: 
 	npx create-react-app client
 	cd client
     npm i axios react-router-dom@5
+    npm start
 
 - full CRUD
     1 model, max 2*
