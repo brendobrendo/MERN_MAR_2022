@@ -21,16 +21,19 @@ const Main = (props) => {
     const deleteNote = (deleteId) => {
         console.log(deleteId);
 
-        // make a request to the DB to delete
-        axios.delete("http://localhost:8000/api/notes/" + deleteId)
+        if (window.confirm("really?")) {
+
+            // make a request to the DB to delete
+            axios.delete("http://localhost:8000/api/notes/" + deleteId)
             .then(res => {
                 console.log(res.data);
                 console.log("SUCCESS DELETE");
-
+                
                 // remove from the DOM after a successful delete
                 setNotes(notes.filter((note) => note._id !== deleteId))
             })
             .catch(err => console.log(err))
+        }
     }
 
     return (
